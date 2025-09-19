@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RapidAid — Ambulance Services</title>
+<style>
+  :root{
+    --blue-800:#1E40AF;
+    --blue-700:#1E60D0;
+    --blue-600:#2563EB;
+    --bg:#F4FAFF;
+    --card:#ffffff;
+    --muted:#6B7280;
+    --border:#E6F0FF;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+    background:var(--bg);
+    color:#0f172a;
+  }
+
+  /* Header */
+  header{
+    background:linear-gradient(90deg,var(--blue-800),var(--blue-600));
+    color:white;
+    padding:18px 20px;
+    box-shadow:0 4px 18px rgba(30,64,175,0.12);
+  }
+  .header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand h1{margin:0;font-size:20px;font-weight:700;letter-spacing:0.2px}
+  nav a{color:white;text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600;opacity:0.95}
+  nav a:hover{background:rgba(255,255,255,0.08)}
+
+  /* Hero section */
+  .hero{max-width:1100px;margin:28px auto;padding:28px 20px;text-align:center}
+  .hero h2{margin:0;font-size:28px;color:var(--blue-800)}
+  .hero p{margin:10px auto 0;max-width:820px;color:var(--muted);font-size:15px}
+
+  .container{max-width:1100px;margin:0 auto;padding:0 20px}
+  .section{margin-bottom:25px;text-align:center}
+  select{
+    padding:12px;
+    border-radius:10px;
+    border:1px solid var(--border);
+    width:60%;
+    font-size:16px;
+  }
+  .btn{padding:12px 20px;margin-top:15px;border:none;border-radius:10px;cursor:pointer;font-weight:600;font-size:15px;transition:0.3s;}
+  .btn-check{background:var(--blue-600);color:white;}
+  .btn-check:hover{background:var(--blue-700);}
+  .row{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+  .card{background:var(--card);flex:1 1 300px;border-radius:15px;padding:20px;box-shadow:0 6px 20px rgba(0,0,0,0.1);transition:transform 0.2s,box-shadow 0.3s;text-align:center;}
+  .card:hover{transform:translateY(-5px);box-shadow:0 12px 24px rgba(0,0,0,0.15);}
+  .card h3{margin-top:0}
+  .btn-map{background:#22c55e;color:white;display:inline-flex;align-items:center;justify-content:center;gap:6px;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 6px 14px rgba(34,197,94,0.18)}
+  .btn-map:hover{background:#16a34a;}
+  .btn-book{background:#ff5722;color:white;}
+  .btn-book:hover{background:#e64a19;}
+  .btn img{width:20px;height:20px}
+  .assigned{margin-top:25px;background:#e0f2fe;border-radius:15px;padding:20px;box-shadow:0 6px 18px rgba(0,0,0,0.1);display:none;text-align:center}
+  .assigned h3{margin-top:0}
+
+  @media (max-width:720px){
+    select{width:90%}
+    .row{flex-direction:column}
+    header{padding:14px 20px}
+    nav{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div style="width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-weight:800">RA</div>
+      <h1>RapidAid</h1>
+    </div>
+    <nav>
+        <a href="Home.html">Home</a>
+        <a href="ambulance.html">Ambulance</a>
+        <a href="pharmacy.html">Pharmacy</a>
+        <a href="bloodBank.html">Blood Bank</a>
+        <a href="#contact">Contact</a>
+      </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <h2>🚑 Ambulance Services — Book Quickly</h2>
+    <p>Select the type of ambulance and check availability. If your requested type is unavailable, we’ll assign an available one automatically.</p>
+  </section>
+
+  <div class="container section">
+    <label for="ambulanceType">Select Ambulance Type:</label><br>
+    <select id="ambulanceType">
+      <option value="BLS">Basic Life Support (BLS)</option>
+      <option value="ALS">Advanced Life Support (ALS)</option>
+      <option value="ICU">ICU Ambulance</option>
+      <option value="Neonatal">Neonatal Ambulance</option>
+      <option value="Cardiac">Cardiac Ambulance</option>
+    </select><br>
+    <button class="btn btn-check" onclick="checkAvailability()">Check Availability</button>
+  </div>
+
+  <div class="container row">
+    <div class="card">
+      <h3>Book Ambulance</h3>
+      <p>Quickly book the selected ambulance type.</p>
+      <button class="btn btn-book" onclick="alert('Ambulance booked!')">Book Now</button>
+    </div>
+    <div class="card">
+      <h3>View Hospital Location</h3>
+      <p>Find the nearest hospital on Google Maps.</p>
+      <a href="https://www.google.com/maps" target="_blank" class="btn btn-map">
+        <img src="https://img.icons8.com/color/48/google-maps-new.png" alt="Map"> Open Map
+      </a>
+    </div>
+  </div>
+
+  <div id="assignedAmbulance" class="assigned">
+    <h3>🚨 Requested Ambulance Not Available</h3>
+    <p id="assignedText"></p>
+    <button class="btn btn-book" onclick="alert('Assigned ambulance booked!')">Book Assigned Ambulance</button>
+  </div>
+
+</main>
+
+<script>
+  const availableAmbulances = ["BLS", "ALS", "Neonatal", "Cardiac"]; // ICU unavailable
+  function checkAvailability() {
+    const selected = document.getElementById("ambulanceType").value;
+    const assignedDiv = document.getElementById("assignedAmbulance");
+    const assignedText = document.getElementById("assignedText");
+
+    if(availableAmbulances.includes(selected)){
+      assignedDiv.style.display = "none";
+      alert(selected + " Ambulance is available for booking.");
+    } else {
+      const assigned = availableAmbulances[0];
+      assignedText.innerHTML = `Your requested type (<b>${selected}</b>) is unavailable. 
+                                A <b>${assigned}</b> ambulance has been assigned for you.`;
+      assignedDiv.style.display = "block";
+    }
+  }
+</script>
+
+</body>
+</html>

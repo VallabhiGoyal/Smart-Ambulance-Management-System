@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RapidAid – Smart Ambulance Management System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <header class="bg-blue-100 shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <!-- Brand with RA icon -->
+        <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-lg bg-blue-200 flex items-center justify-center font-bold text-blue-800">RA</div>
+            <h1 class="text-2xl font-bold text-blue-800">RapidAid</h1>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="space-x-6">
+            <a href="#home" class="font-semibold hover:text-blue-600">Home</a>
+            <a href="#features" class="font-semibold hover:text-blue-600">Features</a>
+            <a href="#map-section" class="font-semibold hover:text-blue-600">Hospital Map</a>
+            <a href="#contact" class="font-semibold hover:text-blue-600">Contact</a>
+        </nav>
+        </div>
+    </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="text-center py-20 bg-gradient-to-r from-blue-800 to-blue-600 text-white">
+    <h2 class="text-4xl font-bold mb-4">Smart Ambulance Management System</h2>
+    <p class="text-lg max-w-2xl mx-auto">
+      An integrated platform ensuring faster response, hospital coordination, 
+      real-time pharmacy & blood bank availability, and optimized ambulance routing.
+    </p>
+
+    <!-- Feature Buttons -->
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href="ambulance.html" class="bg-white text-blue-800 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition">🚑 Hospital & Ambulance</a>
+        <a href="pharmacy.html" class="bg-white text-blue-800 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition">💊 Pharmacy</a>
+        <a href="bloodbank.html" class="bg-white text-blue-800 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition">🩸 Blood Bank</a>
+        <a href="map.html" class="bg-yellow-400 text-white font-semibold px-6 py-3 rounded-full shadow hover:bg-yellow-500 transition">📍 Hospital Location</a>
+    </div>
+
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-16 max-w-6xl mx-auto px-6 text-center">
+    <h3 class="text-3xl font-bold mb-12 text-blue-800">Key Features</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Hospital -->
+      <div id="hospital" class="bg-white rounded-xl shadow p-6 border-t-4 border-blue-600">
+        <h4 class="text-xl font-semibold mb-3 text-blue-700">🚑 Hospital & Ambulance</h4>
+        <p class="text-gray-600">
+          Checks hospital bed and doctor availability before booking. 
+          Ambulance booking confirmed only when hospital is ready, avoiding delays.
+        </p>
+      </div>
+
+      <!-- Pharmacy -->
+      <div id="pharmacy" class="bg-white rounded-xl shadow p-6 border-t-4 border-green-600">
+        <h4 class="text-xl font-semibold mb-3 text-green-700">💊 Pharmacy</h4>
+        <p class="text-gray-600">
+          Finds essential medicines and injections across city pharmacies, 
+          showing name and contact details for faster access.
+        </p>
+      </div>
+
+      <!-- Blood Bank -->
+      <div id="bloodbank" class="bg-white rounded-xl shadow p-6 border-t-4 border-red-600">
+        <h4 class="text-xl font-semibold mb-3 text-red-700">🩸 Blood Bank</h4>
+        <p class="text-gray-600">
+          Provides real-time availability of blood units across nearby blood banks 
+          with direct contact details.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Static Google Map -->
+  <section id="map-section" class="py-16 max-w-6xl mx-auto px-6 text-center">
+    <h3 class="text-3xl font-bold mb-6 text-blue-800">📍 Partner Hospital Location</h3>
+    <p class="text-gray-600 mb-6">Here’s the location of our partnered hospital on the map.</p>
+    
+    <div class="w-full h-[500px] rounded-xl shadow border border-blue-200 overflow-hidden">
+      <!-- Example: AIIMS Delhi Map -->
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.546429541737!2d77.20653217466678!3d28.56717738765243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce27d0a3f0d2b%3A0xb9c8d3767fbf1d41!2sAIIMS%20Delhi!5e0!3m2!1sen!2sin!4v1694595123456!5m2!1sen!2sin" 
+        width="100%" 
+        height="100%" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 max-w-4xl mx-auto px-6 text-center">
+    <h3 class="text-3xl font-bold mb-6 text-blue-800">Contact Us</h3>
+    <div class="bg-white shadow rounded-xl p-6 border-t-4 border-blue-600">
+      <p><strong>Email:</strong> support@rapidaid.com</p>
+      <p><strong>Phone:</strong> +91-0123456789</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-800 text-white py-6 text-center">
+    <p>&copy; 2025 RapidAid | Smart Ambulance Management System</p>
+  </footer>
+
+</body>
+</html>

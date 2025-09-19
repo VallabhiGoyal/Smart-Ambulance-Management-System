@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RapidAid — Pharmacy</title>
+  <style>
+    :root{
+      --blue-800:#1E40AF;
+      --blue-700:#1E60D0;
+      --blue-600:#2563EB;
+      --bg:#F4FAFF;
+      --card:#ffffff;
+      --muted:#6B7280;
+      --accent:#60A5FA;
+      --border:#E6F0FF;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background:var(--bg);
+      color:#0f172a;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* Header */
+    header{
+      background:linear-gradient(90deg,var(--blue-800),var(--blue-600));
+      color:white;
+      padding:18px 20px;
+      box-shadow:0 4px 18px rgba(30,64,175,0.12);
+    }
+    .header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand h1{margin:0;font-size:20px;font-weight:700;letter-spacing:0.2px}
+    nav a{color:white;text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600;opacity:0.95}
+    nav a:hover{background:rgba(255,255,255,0.08)}
+
+    /* Hero */
+    .hero{max-width:1100px;margin:28px auto;padding:28px 20px;text-align:center}
+    .hero h2{margin:0;font-size:28px;color:var(--blue-800)}
+    .hero p{margin:10px auto 0;max-width:820px;color:var(--muted);font-size:15px}
+
+    /* Search */
+    .search-wrap{max-width:1100px;margin:18px auto;padding:0 20px;display:flex;justify-content:center}
+    .search {
+      width:100%;max-width:840px;display:flex;gap:8px;
+      background:var(--card);
+      padding:12px;border-radius:12px;box-shadow:0 6px 18px rgba(16,24,40,0.06);
+      border:1px solid var(--border);align-items:center;
+    }
+    .search input{
+      flex:1;border:1px solid #dbeafe;border-radius:8px;padding:10px 12px;font-size:15px;
+      outline:none;
+    }
+    .search button{
+      background:var(--blue-700);border:none;color:white;padding:10px 14px;border-radius:8px;font-weight:700;cursor:pointer;
+    }
+    .search button:hover{background:var(--blue-800)}
+
+    /* Results container */
+    .results{max-width:1100px;margin:18px auto;padding:0 20px 60px}
+    .card{
+      display:flex;align-items:center;gap:18px;background:var(--card);
+      padding:16px;border-radius:12px;border:1px solid var(--border);box-shadow:0 6px 18px rgba(16,24,40,0.04);
+      margin-bottom:14px;
+    }
+
+    /* left icon */
+    .icon-wrap{
+      flex:0 0 72px;height:72px;border-radius:14px;background:linear-gradient(180deg,#fff, #f0f7ff);
+      display:flex;align-items:center;justify-content:center;border:1px solid #e8f3ff;
+    }
+    .pill-svg{width:40px;height:40px;display:block}
+
+    /* middle info */
+    .info{flex:1;min-width:0}
+    .info h3{margin:0;font-size:17px;color:var(--blue-800)}
+    .meta{margin-top:6px;color:var(--muted);font-size:14px;line-height:1.4}
+    .badges{margin-top:8px;display:flex;flex-wrap:wrap;gap:8px}
+    .badge{background:#f1f8ff;color:var(--blue-700);padding:6px 8px;border-radius:999px;font-weight:600;font-size:13px;border:1px solid #e3f0ff}
+
+    /* right map button section */
+    .map-col{flex:0 0 150px;display:flex;flex-direction:column;align-items:center;gap:8px}
+    .map-btn{
+      display:inline-flex;align-items:center;gap:10px;padding:10px 12px;background:var(--blue-600);color:white;border-radius:10px;text-decoration:none;font-weight:700;
+      box-shadow:0 6px 14px rgba(37,99,235,0.18);
+    }
+    .map-btn svg{width:18px;height:18px;display:block}
+    .distance{font-size:13px;color:var(--muted)}
+
+    /* empty state */
+    .empty{
+      max-width:1100px;margin:14px auto;padding:18px 20px;background:var(--card);border-radius:12px;border:1px dashed var(--border);text-align:center;color:var(--muted)
+    }
+
+    @media (max-width:720px){
+      .card{flex-direction:column;align-items:stretch}
+      .map-col{flex-direction:row;justify-content:space-between;padding-top:8px}
+      .icon-wrap{margin:0 auto}
+      nav{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <!-- simple logo circle -->
+        <div style="width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-weight:800">
+          RA
+        </div>
+        <h1>RapidAid</h1>
+      </div>
+      <nav>
+        <a href="Home.html">Home</a>
+        <a href="ambulance.html">Ambulance</a>
+        <a href="pharmacy.html">Pharmacy</a>
+        <a href="bloodBank.html">Blood Bank</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>💊 Pharmacy — Find medicines fast</h2>
+      <p>Search for medicines and quickly see which nearby pharmacies have them. Click the Map button on each result to open the location in Google Maps.</p>
+    </section>
+
+    <section class="search-wrap">
+      <div class="search" role="search" aria-label="Search medicines">
+        <input id="searchInput" placeholder="Type medicine name (e.g. Paracetamol, Ibuprofen)" onkeydown="if(event.key==='Enter') searchMedicine()" />
+        <button onclick="searchMedicine()">🔍 Search</button>
+      </div>
+    </section>
+
+    <section class="results" id="resultsArea">
+      <!-- results appear here -->
+      <div class="empty" id="emptyHint">Search for a medicine to see matching pharmacies (demo data).</div>
+    </section>
+  </main>
+
+  <script>
+    // sample pharmacy data (static)
+    const pharmacies = [
+      {
+        name: "HealthPlus Pharmacy",
+        address: "Sector 62, Noida",
+        phone: "+91 98765 43210",
+        medicines: ["Paracetamol","Amoxicillin","Cetirizine","ORS"],
+        distance: "2.1 km",
+        mapUrl: "https://www.google.com/maps?q=Sector+62+Noida"
+      },
+      {
+        name: "City Care Medicals",
+        address: "Indirapuram, Ghaziabad",
+        phone: "+91 91234 56780",
+        medicines: ["Dolo-650","Azithromycin","Ibuprofen","Insulin"],
+        distance: "3.5 km",
+        mapUrl: "https://www.google.com/maps?q=Indirapuram+Ghaziabad"
+      },
+      {
+        name: "GreenLeaf Pharmacy",
+        address: "Connaught Place, New Delhi",
+        phone: "+91 99111 22334",
+        medicines: ["Crocin","Allegra","Vitamin C","ORS"],
+        distance: "6.8 km",
+        mapUrl: "https://www.google.com/maps?q=Connaught+Place+Delhi"
+      },
+      {
+        name: "Medico Mart",
+        address: "Sector 18, Noida",
+        phone: "+91 98111 22233",
+        medicines: ["Paracetamol","Aspirin","Amoxicillin","Glucose"],
+        distance: "3.9 km",
+        mapUrl: "https://www.google.com/maps?q=Sector+18+Noida"
+      },
+      {
+        name: "Wellness Chemist",
+        address: "Lajpat Nagar, Delhi",
+        phone: "+91 88900 77665",
+        medicines: ["Dolo-650","Omeprazole","Cetirizine","Ibuprofen"],
+        distance: "8.4 km",
+        mapUrl: "https://www.google.com/maps?q=Lajpat+Nagar+Delhi"
+      }
+    ];
+
+    // helper: sanitize & check includes
+    function matchMedicine(list, q){
+      if(!q) return false;
+      q = q.trim().toLowerCase();
+      return list.some(m=> m.toLowerCase().includes(q));
+    }
+
+    // render a single card HTML
+    function renderCard(ph){
+      return `
+        <div class="card" role="article" aria-label="${ph.name}">
+          <div class="icon-wrap" aria-hidden="true">
+            <!-- pill icon SVG -->
+            <svg class="pill-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="3" y="11" width="18" height="6" rx="3" fill="#EFF6FF"/>
+              <path d="M6 8c2-2 6-2 8 0l4 4c2 2 2 6 0 8s-6 2-8 0l-4-4c-2-2-2-6 0-8z" fill="#60A5FA"/>
+              <path d="M6.5 10.5 L17.5 21.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <div class="info">
+            <h3>${ph.name}</h3>
+            <div class="meta">
+              <div><strong>Address:</strong> ${ph.address}</div>
+              <div><strong>Phone:</strong> ${ph.phone}</div>
+            </div>
+            <div class="badges" aria-hidden="true">
+              ${ph.medicines.slice(0,5).map(m => `<span class="badge">${m}</span>`).join('')}
+            </div>
+          </div>
+
+          <div class="map-col">
+            <div class="distance">${ph.distance}</div>
+            <a class="map-btn" href="${ph.mapUrl}" target="_blank" rel="noopener noreferrer" title="Open in Google Maps">
+              <!-- Google Maps pin icon (inline SVG) -->
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 2C8.686 2 6 4.686 6 8c0 5.25 6 12 6 12s6-6.75 6-12c0-3.314-2.686-6-6-6z" fill="#fff"/>
+                <path d="M12 4.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7z" fill="#2563EB"/>
+              </svg>
+              View on map
+            </a>
+          </div>
+        </div>
+      `;
+    }
+
+    // main search & render function
+    function searchMedicine(){
+      const q = document.getElementById('searchInput').value || '';
+      const resultsEl = document.getElementById('resultsArea');
+      resultsEl.innerHTML = ''; // clear
+
+      const filtered = pharmacies.filter(ph => matchMedicine(ph.medicines, q));
+      if(!q.trim()){
+        resultsEl.innerHTML = `<div class="empty">Search for a medicine to see matching pharmacies (demo data).</div>`;
+        return;
+      }
+      if(filtered.length === 0){
+        resultsEl.innerHTML = `<div class="empty">No pharmacy found with medicine "<strong>${escapeHtml(q)}</strong>".</div>`;
+        return;
+      }
+      // build markup
+      filtered.forEach(ph => {
+        resultsEl.insertAdjacentHTML('beforeend', renderCard(ph));
+      });
+      // smooth scroll to first result (optional)
+      const first = resultsEl.querySelector('.card');
+      if(first) first.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
+    // small helper to escape user input in shown text
+    function escapeHtml(text){
+      return text.replace(/[&<>"']/g, (m) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+    }
+
+    // initial: show hint (already set in markup)
+  </script>
+</body>
+</html>
