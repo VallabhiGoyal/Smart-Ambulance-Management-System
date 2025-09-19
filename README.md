@@ -13,9 +13,3 @@ The webpage provides an overview of the problem, our proposed solution, and the 
 ## 🔹 Tech Stack
 - **Frontend:** HTML, CSS, JavaScript  
 - **Version Control:** Git & GitHub  
-
-## 🔹 Deployment
-The webpage is hosted via **GitHub Pages** and accessible at:  
-👉 [Live Demo](https://VallabhiGoyal.github.io/Smart-Ambulance-Management-System/)  
-
----
